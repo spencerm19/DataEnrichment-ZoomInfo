@@ -1,19 +1,10 @@
 version: '3.8'
 
-x-common-environment: &common-environment
-  HTTP_PROXY: ${HTTP_PROXY}
-  HTTPS_PROXY: ${HTTPS_PROXY}
-  NO_PROXY: ${NO_PROXY}
-
 services:
   lambda:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        HTTP_PROXY: ${HTTP_PROXY}
-        HTTPS_PROXY: ${HTTPS_PROXY}
-        NO_PROXY: ${NO_PROXY}
     volumes:
       - .:/var/task:ro  # Read-only mount
       - ~/.aws:/root/.aws:ro  # Mount AWS credentials read-only
@@ -23,9 +14,6 @@ services:
       LOG_LEVEL: INFO
       POWERTOOLS_LOGGER_LOG_EVENT: "true"
       AWS_PROFILE: default
-      HTTP_PROXY: ${HTTP_PROXY}
-      HTTPS_PROXY: ${HTTPS_PROXY}
-      NO_PROXY: ${NO_PROXY}
     ports:
       - "127.0.0.1:9000:8080"  # Only bind to localhost
     security_opt:
@@ -49,7 +37,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      network: host
     volumes:
       - ./data/input:/data/input:ro
       - ./data/output:/data/output
@@ -58,9 +45,6 @@ services:
       PYTHONUNBUFFERED: 1
       LOG_LEVEL: INFO
       USE_AWS_SECRETS: "false"
-      HTTP_PROXY: ${HTTP_PROXY}
-      HTTPS_PROXY: ${HTTPS_PROXY}
-      NO_PROXY: ${NO_PROXY}
     env_file: .env
     ports:
       - "8080:8080"
@@ -88,5 +72,4 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 5s
-    network_mode: host 
+      start_period: 5s 

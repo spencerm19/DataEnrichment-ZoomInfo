@@ -7,13 +7,12 @@ ENV PYTHONUNBUFFERED=1 \
     LC_ALL=C.UTF-8 \
     PYTHONDONTWRITEBYTECODE=1
 
-# Set proxy environment variables if they exist
-ARG HTTP_PROXY
-ARG HTTPS_PROXY
-ARG NO_PROXY
-ENV HTTP_PROXY=$HTTP_PROXY \
-    HTTPS_PROXY=$HTTPS_PROXY \
-    NO_PROXY=$NO_PROXY
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    python3-dev \
+    libffi-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user
 RUN groupadd -r appuser && useradd -r -g appuser -s /sbin/nologin -d /app appuser
@@ -28,13 +27,6 @@ RUN mkdir -p /data/input /data/output /data/archive \
 
 # Copy requirements file
 COPY --chown=appuser:appuser requirements.txt .
-
-# Configure pip to use proxy
-RUN if [ ! -z "$HTTP_PROXY" ]; then \
-        mkdir -p ~/.pip && \
-        echo "[global]" > ~/.pip/pip.conf && \
-        echo "proxy = $HTTP_PROXY" >> ~/.pip/pip.conf; \
-    fi
 
 # Install Python dependencies
 RUN pip3 install --no-cache-dir -r requirements.txt

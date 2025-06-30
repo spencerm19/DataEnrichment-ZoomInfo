@@ -5,4 +5,7 @@ python-json-logger==2.0.7
 pydantic==2.6.3
 requests-ratelimiter==0.5.1
 PyJWT==2.8.0
-PySimpleGUI==5.0.8.3 
+PySimpleGUI==5.0.8.3
+cryptography==41.0.6
+zi-api-auth-client==2.0.2
+boto3==1.34.34 
