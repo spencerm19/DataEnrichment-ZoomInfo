@@ -1,0 +1,304 @@
+    INFO: 2025-06-26 14:08:55,520:               log.py:   20: Logging to C:\Users\Spencer\OneDrive - Avetta\Avetta\GitHub\spencerm19\Data-Enrichment-ZoomInfo\Data Enrichment ZoomInfo - Docker\mdpdf.log
+   DEBUG: 2025-06-26 14:08:55,520:               cli.py:  103: Data Enrichment Doc.md
+    INFO: 2025-06-26 14:08:55,520:         converter.py:   14: Data Enrichment Doc.md
+   DEBUG: 2025-06-26 14:08:55,520:      pdf_renderer.py:  470: printSegment: Data Enrichment Tool Documentation
+   DEBUG: 2025-06-26 14:08:55,520:      pdf_renderer.py:  470: printSegment: Overview
+   DEBUG: 2025-06-26 14:08:55,537:      pdf_renderer.py:  470: printSegment: The Data Enrichment Tool is a Python-based application that enriches company and contact data using the
+   DEBUG: 2025-06-26 14:08:55,537:      pdf_renderer.py:  470: printSegment: ZoomInfo API. It processes CSV files containing company and contact information, enhances them with additional
+   DEBUG: 2025-06-26 14:08:55,537:      pdf_renderer.py:  470: printSegment: data from ZoomInfo, and outputs enriched datasets.
+   DEBUG: 2025-06-26 14:08:55,537:      pdf_renderer.py:  470: printSegment: Features
+   DEBUG: 2025-06-26 14:08:55,537:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,537:      pdf_renderer.py:  470: printSegment: Company data enrichment
+   DEBUG: 2025-06-26 14:08:55,553:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,554:      pdf_renderer.py:  470: printSegment: Contact data enrichment
+   DEBUG: 2025-06-26 14:08:55,554:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,556:      pdf_renderer.py:  470: printSegment: Rate limiting (100 requests/minute, 2 requests/second)
+   DEBUG: 2025-06-26 14:08:55,556:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,557:      pdf_renderer.py:  470: printSegment: JWT token authentication
+   DEBUG: 2025-06-26 14:08:55,558:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,559:      pdf_renderer.py:  470: printSegment: Support for both environment variables and AWS Secrets Manager
+   DEBUG: 2025-06-26 14:08:55,561:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,561:      pdf_renderer.py:  470: printSegment: Automatic input file archiving
+   DEBUG: 2025-06-26 14:08:55,561:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,561:      pdf_renderer.py:  470: printSegment: Detailed JSON logging
+   DEBUG: 2025-06-26 14:08:55,561:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,561:      pdf_renderer.py:  470: printSegment: Error handling and retry mechanisms
+   DEBUG: 2025-06-26 14:08:55,561:      pdf_renderer.py:  470: printSegment: Prerequisites
+   DEBUG: 2025-06-26 14:08:55,561:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,561:      pdf_renderer.py:  470: printSegment: Python 3.12 or higher
+   DEBUG: 2025-06-26 14:08:55,561:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,561:      pdf_renderer.py:  470: printSegment: ZoomInfo API credentials:
+   DEBUG: 2025-06-26 14:08:55,561:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,561:      pdf_renderer.py:  470: printSegment: Client ID
+   DEBUG: 2025-06-26 14:08:55,567:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,568:      pdf_renderer.py:  470: printSegment: Private Key (for company enrichment)
+   DEBUG: 2025-06-26 14:08:55,568:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,569:      pdf_renderer.py:  470: printSegment: Username and Password (for contact enrichment)
+   DEBUG: 2025-06-26 14:08:55,571:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,571:      pdf_renderer.py:  470: printSegment: Required Python packages (see requirements.txt)
+   DEBUG: 2025-06-26 14:08:55,572:      pdf_renderer.py:  470: printSegment: Directory Structure
+   DEBUG: 2025-06-26 14:08:55,573:      pdf_renderer.py:  470: printSegment: Data-Enrichment-ZoomInfo/
+   DEBUG: 2025-06-26 14:08:55,575:      pdf_renderer.py:  470: printSegment: ├── app.py                 # Main application for company enrichment
+   DEBUG: 2025-06-26 14:08:55,582:      pdf_renderer.py:  470: printSegment: ├── contact_enrichment.py  # Contact enrichment functionality
+   DEBUG: 2025-06-26 14:08:55,583:      pdf_renderer.py:  470: printSegment: ├── check_key_format.py    # Utility to validate ZoomInfo private key
+   DEBUG: 2025-06-26 14:08:55,584:      pdf_renderer.py:  470: printSegment: ├── data/
+   DEBUG: 2025-06-26 14:08:55,585:      pdf_renderer.py:  470: printSegment: │   ├── input/            # Place input CSV files here
+   DEBUG: 2025-06-26 14:08:55,586:      pdf_renderer.py:  470: printSegment: │   ├── output/           # Enriched data files
+   DEBUG: 2025-06-26 14:08:55,586:      pdf_renderer.py:  470: printSegment: │   └── archive/          # Processed input files
+   DEBUG: 2025-06-26 14:08:55,587:      pdf_renderer.py:  470: printSegment: └── .env                  # Environment variables
+   DEBUG: 2025-06-26 14:08:55,588:      pdf_renderer.py:  470: printSegment: Environment Variables
+   DEBUG: 2025-06-26 14:08:55,589:      pdf_renderer.py:  470: printSegment: Create a 
+   DEBUG: 2025-06-26 14:08:55,589:      pdf_renderer.py:  470: printSegment: .env
+   DEBUG: 2025-06-26 14:08:55,590:      pdf_renderer.py:  470: printSegment:  file in the root directory with the following variables:
+   DEBUG: 2025-06-26 14:08:55,591:      pdf_renderer.py:  470: printSegment: ZOOMINFO_CLIENT_ID=your_client_id
+   DEBUG: 2025-06-26 14:08:55,592:      pdf_renderer.py:  470: printSegment: ZOOMINFO_PRIVATE_KEY=your_private_key
+   DEBUG: 2025-06-26 14:08:55,592:      pdf_renderer.py:  470: printSegment: ZOOMINFO_USERNAME=your_username
+   DEBUG: 2025-06-26 14:08:55,593:      pdf_renderer.py:  470: printSegment: ZOOMINFO_PASSWORD=your_password
+   DEBUG: 2025-06-26 14:08:55,594:      pdf_renderer.py:  470: printSegment: USE_AWS_SECRETS=false     # Optional: Set to 'true' to use AWS
+   DEBUG: 2025-06-26 14:08:55,595:      pdf_renderer.py:  470: printSegment: Secrets Manager
+   DEBUG: 2025-06-26 14:08:55,596:      pdf_renderer.py:  470: printSegment: ENCRYPTION_KEY=           # Optional: For token caching
+   DEBUG: 2025-06-26 14:08:55,596:      pdf_renderer.py:  470: printSegment: Input File Format
+   DEBUG: 2025-06-26 14:08:55,597:      pdf_renderer.py:  470: printSegment: Company Enrichment
+   DEBUG: 2025-06-26 14:08:55,597:      pdf_renderer.py:  470: printSegment: Required CSV columns:
+   DEBUG: 2025-06-26 14:08:55,597:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,597:      pdf_renderer.py:  470: printSegment: company_name
+   DEBUG: 2025-06-26 14:08:55,597:      pdf_renderer.py:  470: printSegment:  (required)
+   DEBUG: 2025-06-26 14:08:55,597:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,597:      pdf_renderer.py:  470: printSegment: contact_email
+   DEBUG: 2025-06-26 14:08:55,597:      pdf_renderer.py:  470: printSegment:  (optional)
+   DEBUG: 2025-06-26 14:08:55,597:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,597:      pdf_renderer.py:  470: printSegment: revenue
+   DEBUG: 2025-06-26 14:08:55,597:      pdf_renderer.py:  470: printSegment:  (optional)
+   DEBUG: 2025-06-26 14:08:55,597:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,603:      pdf_renderer.py:  470: printSegment: employees
+   DEBUG: 2025-06-26 14:08:55,603:      pdf_renderer.py:  470: printSegment:  (optional)
+   DEBUG: 2025-06-26 14:08:55,604:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,604:      pdf_renderer.py:  470: printSegment: country
+   DEBUG: 2025-06-26 14:08:55,605:      pdf_renderer.py:  470: printSegment:  (optional)
+   DEBUG: 2025-06-26 14:08:55,606:      pdf_renderer.py:  470: printSegment: Contact Enrichment
+   DEBUG: 2025-06-26 14:08:55,606:      pdf_renderer.py:  470: printSegment: Required CSV columns:
+   DEBUG: 2025-06-26 14:08:55,606:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,607:      pdf_renderer.py:  470: printSegment: first_name
+   DEBUG: 2025-06-26 14:08:55,607:      pdf_renderer.py:  470: printSegment:  (required)
+   DEBUG: 2025-06-26 14:08:55,608:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,608:      pdf_renderer.py:  470: printSegment: last_name
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment:  (required)
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: company_name
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment:  (required)
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: email
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment:  (optional)
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: phone
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment:  (optional)
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: Usage
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: Company Enrichment
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment:  1 
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: Place your company data CSV file in the 
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: data/input
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment:  directory
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment:  2 
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: Run the main application:
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: python app.py
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: Contact Enrichment
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment:  1 
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: Place your contact data CSV file in the 
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: data/input
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment:  directory (filename must contain 
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: '
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: contacts
+   DEBUG: 2025-06-26 14:08:55,609:      pdf_renderer.py:  470: printSegment: '
+   DEBUG: 2025-06-26 14:08:55,621:      pdf_renderer.py:  470: printSegment: )
+   DEBUG: 2025-06-26 14:08:55,622:      pdf_renderer.py:  470: printSegment:  2 
+   DEBUG: 2025-06-26 14:08:55,622:      pdf_renderer.py:  470: printSegment: Run the contact enrichment script:
+   DEBUG: 2025-06-26 14:08:55,623:      pdf_renderer.py:  470: printSegment: python contact_enrichment.py
+   DEBUG: 2025-06-26 14:08:55,623:      pdf_renderer.py:  470: printSegment: Validating Private Key
+   DEBUG: 2025-06-26 14:08:55,624:      pdf_renderer.py:  470: printSegment: Before running enrichment, validate your private key format:
+   DEBUG: 2025-06-26 14:08:55,625:      pdf_renderer.py:  470: printSegment: python check_key_format.py
+   DEBUG: 2025-06-26 14:08:55,625:      pdf_renderer.py:  470: printSegment: Output
+   DEBUG: 2025-06-26 14:08:55,626:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,626:      pdf_renderer.py:  470: printSegment: Enriched files are saved in 
+   DEBUG: 2025-06-26 14:08:55,627:      pdf_renderer.py:  470: printSegment: data/output
+   DEBUG: 2025-06-26 14:08:55,627:      pdf_renderer.py:  470: printSegment:  with timestamp prefixes
+   DEBUG: 2025-06-26 14:08:55,627:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,628:      pdf_renderer.py:  470: printSegment: Original input files are automatically archived to 
+   DEBUG: 2025-06-26 14:08:55,628:      pdf_renderer.py:  470: printSegment: data/archive
+   DEBUG: 2025-06-26 14:08:55,629:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,630:      pdf_renderer.py:  470: printSegment: Enriched data includes all original columns plus ZoomInfo-specific fields
+   DEBUG: 2025-06-26 14:08:55,631:      pdf_renderer.py:  470: printSegment: Company Enrichment Fields
+   DEBUG: 2025-06-26 14:08:55,631:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,632:      pdf_renderer.py:  470: printSegment: website
+   DEBUG: 2025-06-26 14:08:55,632:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,633:      pdf_renderer.py:  470: printSegment: industry
+   DEBUG: 2025-06-26 14:08:55,633:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,634:      pdf_renderer.py:  470: printSegment: revenue
+   DEBUG: 2025-06-26 14:08:55,634:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,634:      pdf_renderer.py:  470: printSegment: employee_count
+   DEBUG: 2025-06-26 14:08:55,635:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,636:      pdf_renderer.py:  470: printSegment: hq_location
+   DEBUG: 2025-06-26 14:08:55,636:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,637:      pdf_renderer.py:  470: printSegment: Additional ZoomInfo-specific fields (prefixed with 
+   DEBUG: 2025-06-26 14:08:55,638:      pdf_renderer.py:  470: printSegment: zi_c_
+   DEBUG: 2025-06-26 14:08:55,638:      pdf_renderer.py:  470: printSegment: )
+   DEBUG: 2025-06-26 14:08:55,639:      pdf_renderer.py:  470: printSegment: Contact Enrichment Fields
+   DEBUG: 2025-06-26 14:08:55,640:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,640:      pdf_renderer.py:  470: printSegment: zi_c_name
+   DEBUG: 2025-06-26 14:08:55,641:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,641:      pdf_renderer.py:  470: printSegment: zi_c_first_name
+   DEBUG: 2025-06-26 14:08:55,642:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,642:      pdf_renderer.py:  470: printSegment: zi_c_last_name
+   DEBUG: 2025-06-26 14:08:55,643:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,643:      pdf_renderer.py:  470: printSegment: zi_c_email
+   DEBUG: 2025-06-26 14:08:55,643:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: zi_c_title
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: zi_c_phone
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: zi_c_direct_phone
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: zi_c_mobile_phone
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: zi_c_company_name
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: zi_c_company_website
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: zi_c_linkedin_url
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: zi_c_department
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: zi_c_job_function
+   DEBUG: 2025-06-26 14:08:55,644:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,653:      pdf_renderer.py:  470: printSegment: zi_c_management_level
+   DEBUG: 2025-06-26 14:08:55,654:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,654:      pdf_renderer.py:  470: printSegment: Additional location and company details
+   DEBUG: 2025-06-26 14:08:55,655:      pdf_renderer.py:  470: printSegment: Error Handling
+   DEBUG: 2025-06-26 14:08:55,655:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,656:      pdf_renderer.py:  470: printSegment: Failed enrichments are marked with 
+   DEBUG: 2025-06-26 14:08:55,657:      pdf_renderer.py:  470: printSegment: enrichment_status = "Failed"
+   DEBUG: 2025-06-26 14:08:55,657:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,658:      pdf_renderer.py:  470: printSegment: Successful enrichments are marked with 
+   DEBUG: 2025-06-26 14:08:55,658:      pdf_renderer.py:  470: printSegment: enrichment_status = "Success"
+   DEBUG: 2025-06-26 14:08:55,659:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,659:      pdf_renderer.py:  470: printSegment: Detailed error logs are available in JSON format
+   DEBUG: 2025-06-26 14:08:55,659:      pdf_renderer.py:  470: printSegment: Rate Limiting
+   DEBUG: 2025-06-26 14:08:55,659:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,659:      pdf_renderer.py:  470: printSegment: Maximum 100 requests per minute
+   DEBUG: 2025-06-26 14:08:55,661:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,661:      pdf_renderer.py:  470: printSegment: Maximum 2 requests per second
+   DEBUG: 2025-06-26 14:08:55,661:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,661:      pdf_renderer.py:  470: printSegment: Automatic rate limiting is enforced
+   DEBUG: 2025-06-26 14:08:55,661:      pdf_renderer.py:  470: printSegment: Security
+   DEBUG: 2025-06-26 14:08:55,661:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,661:      pdf_renderer.py:  470: printSegment: Private keys must be in proper PEM format
+   DEBUG: 2025-06-26 14:08:55,661:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,661:      pdf_renderer.py:  470: printSegment: JWT tokens are automatically refreshed (55-minute expiry)
+   DEBUG: 2025-06-26 14:08:55,661:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,661:      pdf_renderer.py:  470: printSegment: Optional token encryption for caching
+   DEBUG: 2025-06-26 14:08:55,661:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,661:      pdf_renderer.py:  470: printSegment: Support for AWS Secrets Manager
+   DEBUG: 2025-06-26 14:08:55,669:      pdf_renderer.py:  470: printSegment: Best Practices
+   DEBUG: 2025-06-26 14:08:55,669:      pdf_renderer.py:  470: printSegment:  1 
+   DEBUG: 2025-06-26 14:08:55,670:      pdf_renderer.py:  470: printSegment: Always validate the private key format before running enrichment
+   DEBUG: 2025-06-26 14:08:55,671:      pdf_renderer.py:  470: printSegment:  2 
+   DEBUG: 2025-06-26 14:08:55,671:      pdf_renderer.py:  470: printSegment: Use descriptive filenames for input files
+   DEBUG: 2025-06-26 14:08:55,672:      pdf_renderer.py:  470: printSegment:  3 
+   DEBUG: 2025-06-26 14:08:55,672:      pdf_renderer.py:  470: printSegment: Monitor the JSON logs for errors and status updates
+   DEBUG: 2025-06-26 14:08:55,673:      pdf_renderer.py:  470: printSegment:  4 
+   DEBUG: 2025-06-26 14:08:55,673:      pdf_renderer.py:  470: printSegment: Keep input files under 1000 records for optimal processing
+   DEBUG: 2025-06-26 14:08:55,674:      pdf_renderer.py:  470: printSegment:  5 
+   DEBUG: 2025-06-26 14:08:55,674:      pdf_renderer.py:  470: printSegment: Ensure all required columns are present in input files
+   DEBUG: 2025-06-26 14:08:55,675:      pdf_renderer.py:  470: printSegment:  6 
+   DEBUG: 2025-06-26 14:08:55,676:      pdf_renderer.py:  470: printSegment: Back up important data before processing
+   DEBUG: 2025-06-26 14:08:55,676:      pdf_renderer.py:  470: printSegment: Troubleshooting
+   DEBUG: 2025-06-26 14:08:55,676:      pdf_renderer.py:  470: printSegment: Common Issues
+   DEBUG: 2025-06-26 14:08:55,677:      pdf_renderer.py:  470: printSegment:  1 
+   DEBUG: 2025-06-26 14:08:55,677:      pdf_renderer.py:  470: printSegment: Private Key Format Error
+   DEBUG: 2025-06-26 14:08:55,679:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,680:      pdf_renderer.py:  470: printSegment: Ensure key starts with 
+   DEBUG: 2025-06-26 14:08:55,680:      pdf_renderer.py:  470: printSegment: "
+   DEBUG: 2025-06-26 14:08:55,681:      pdf_renderer.py:  470: printSegment: -----BEGIN PRIVATE KEY-----
+   DEBUG: 2025-06-26 14:08:55,681:      pdf_renderer.py:  470: printSegment: "
+   DEBUG: 2025-06-26 14:08:55,681:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,682:      pdf_renderer.py:  470: printSegment: Ensure key ends with 
+   DEBUG: 2025-06-26 14:08:55,682:      pdf_renderer.py:  470: printSegment: "
+   DEBUG: 2025-06-26 14:08:55,683:      pdf_renderer.py:  470: printSegment: -----END PRIVATE KEY-----
+   DEBUG: 2025-06-26 14:08:55,683:      pdf_renderer.py:  470: printSegment: "
+   DEBUG: 2025-06-26 14:08:55,684:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,684:      pdf_renderer.py:  470: printSegment: Each line should be exactly 64 characters
+   DEBUG: 2025-06-26 14:08:55,685:      pdf_renderer.py:  470: printSegment:  2 
+   DEBUG: 2025-06-26 14:08:55,686:      pdf_renderer.py:  470: printSegment: Authentication Failures
+   DEBUG: 2025-06-26 14:08:55,686:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,687:      pdf_renderer.py:  470: printSegment: Verify credentials in .env file
+   DEBUG: 2025-06-26 14:08:55,688:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,688:      pdf_renderer.py:  470: printSegment: Check token expiration
+   DEBUG: 2025-06-26 14:08:55,689:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,689:      pdf_renderer.py:  470: printSegment: Validate API access permissions
+   DEBUG: 2025-06-26 14:08:55,690:      pdf_renderer.py:  470: printSegment:  3 
+   DEBUG: 2025-06-26 14:08:55,690:      pdf_renderer.py:  470: printSegment: Data Type Errors
+   DEBUG: 2025-06-26 14:08:55,691:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,691:      pdf_renderer.py:  470: printSegment: Ensure ZIP codes are strings, not numbers
+   DEBUG: 2025-06-26 14:08:55,692:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,692:      pdf_renderer.py:  470: printSegment: Verify date formats match expected format
+   DEBUG: 2025-06-26 14:08:55,693:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,693:      pdf_renderer.py:  470: printSegment: Check for special characters in company names
+   DEBUG: 2025-06-26 14:08:55,694:      pdf_renderer.py:  470: printSegment: Error Messages
+   DEBUG: 2025-06-26 14:08:55,694:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,695:      pdf_renderer.py:  470: printSegment: "
+   DEBUG: 2025-06-26 14:08:55,695:      pdf_renderer.py:  470: printSegment: Key does not start with proper header
+   DEBUG: 2025-06-26 14:08:55,696:      pdf_renderer.py:  470: printSegment: "
+   DEBUG: 2025-06-26 14:08:55,696:      pdf_renderer.py:  470: printSegment: : Invalid private key format
+   DEBUG: 2025-06-26 14:08:55,697:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,697:      pdf_renderer.py:  470: printSegment: "
+   DEBUG: 2025-06-26 14:08:55,698:      pdf_renderer.py:  470: printSegment: Input parameter has wrong type
+   DEBUG: 2025-06-26 14:08:55,698:      pdf_renderer.py:  470: printSegment: "
+   DEBUG: 2025-06-26 14:08:55,699:      pdf_renderer.py:  470: printSegment: : Data type mismatch in API request
+   DEBUG: 2025-06-26 14:08:55,699:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,700:      pdf_renderer.py:  470: printSegment: "
+   DEBUG: 2025-06-26 14:08:55,700:      pdf_renderer.py:  470: printSegment: Missing required columns
+   DEBUG: 2025-06-26 14:08:55,701:      pdf_renderer.py:  470: printSegment: "
+   DEBUG: 2025-06-26 14:08:55,702:      pdf_renderer.py:  470: printSegment: : Input CSV missing mandatory fields
+   DEBUG: 2025-06-26 14:08:55,703:      pdf_renderer.py:  470: printSegment: Support
+   DEBUG: 2025-06-26 14:08:55,704:      pdf_renderer.py:  470: printSegment: For issues with:
+   DEBUG: 2025-06-26 14:08:55,704:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,705:      pdf_renderer.py:  470: printSegment: ZoomInfo API: Contact ZoomInfo support
+   DEBUG: 2025-06-26 14:08:55,705:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,706:      pdf_renderer.py:  470: printSegment: Application bugs: Submit an issue in the repository
+   DEBUG: 2025-06-26 14:08:55,707:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,707:      pdf_renderer.py:  470: printSegment: Data format: Check the input file requirements section
+   DEBUG: 2025-06-26 14:08:55,707:      pdf_renderer.py:  470: printSegment: Maintenance
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:  470: printSegment: Regularly update Python packages
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:  470: printSegment: Monitor API rate limits
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:  470: printSegment: Archive old output files
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:  470: printSegment: Check logs for recurring errors
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:  470: printSegment: l
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:  470: printSegment: Update credentials before expiration
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 0, [1, 'Data Enrichment Tool Documentation', 1, 68.0]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 1, [2, 'Overview', 1, 106.0]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 2, [2, 'Features', 1, 181.60000000000002]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 3, [2, 'Prerequisites', 1, 323.20000000000005]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 4, [2, 'Directory Structure', 1, 452.80000000000007]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 5, [2, 'Environment Variables', 1, 606.4000000000001]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 6, [2, 'Input File Format', 2, 116.80000000000001]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 7, [3, 'Company Enrichment', 2, 150.00000000000003]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 8, [3, 'Contact Enrichment', 2, 268.8]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 9, [2, 'Usage', 2, 388.0]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 10, [3, 'Company Enrichment', 2, 421.2]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 11, [3, 'Contact Enrichment', 2, 510.0]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 12, [3, 'Validating Private Key', 2, 598.8]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 13, [2, 'Output', 2, 669.9999999999999]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 14, [3, 'Company Enrichment Fields', 3, 104.4]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 15, [3, 'Contact Enrichment Fields', 3, 217.20000000000002]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 16, [2, 'Error Handling', 3, 438.40000000000003]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 17, [2, 'Rate Limiting', 3, 520.0]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 18, [2, 'Security', 3, 601.5999999999999]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 19, [2, 'Best Practices', 3, 695.1999999999998]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 20, [2, 'Troubleshooting', 4, 170.8]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 21, [3, 'Common Issues', 4, 204.00000000000003]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 22, [3, 'Error Messages', 4, 424.8]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 23, [2, 'Support', 4, 502.0]
+   DEBUG: 2025-06-26 14:08:55,708:      pdf_renderer.py:   53: 24, [2, 'Maintenance', 4, 601.5999999999999]

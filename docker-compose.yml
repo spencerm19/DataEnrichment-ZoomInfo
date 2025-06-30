@@ -1,0 +1,92 @@
+version: '3.8'
+
+x-common-environment: &common-environment
+  HTTP_PROXY: ${HTTP_PROXY}
+  HTTPS_PROXY: ${HTTPS_PROXY}
+  NO_PROXY: ${NO_PROXY}
+
+services:
+  lambda:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        HTTP_PROXY: ${HTTP_PROXY}
+        HTTPS_PROXY: ${HTTPS_PROXY}
+        NO_PROXY: ${NO_PROXY}
+    volumes:
+      - .:/var/task:ro  # Read-only mount
+      - ~/.aws:/root/.aws:ro  # Mount AWS credentials read-only
+    environment:
+      AWS_DEFAULT_REGION: us-west-2
+      POWERTOOLS_SERVICE_NAME: data-enrichment
+      LOG_LEVEL: INFO
+      POWERTOOLS_LOGGER_LOG_EVENT: "true"
+      AWS_PROFILE: default
+      HTTP_PROXY: ${HTTP_PROXY}
+      HTTPS_PROXY: ${HTTPS_PROXY}
+      NO_PROXY: ${NO_PROXY}
+    ports:
+      - "127.0.0.1:9000:8080"  # Only bind to localhost
+    security_opt:
+      - no-new-privileges:true
+    read_only: true  # Make container filesystem read-only
+    tmpfs:
+      - /tmp  # Temporary storage
+    cap_drop:
+      - ALL  # Drop all capabilities
+    cap_add:
+      - NET_BIND_SERVICE  # Only add required capabilities
+    command: ["app.lambda_handler"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
+  enrichment:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+    volumes:
+      - ./data/input:/data/input:ro
+      - ./data/output:/data/output
+      - ./data/archive:/data/archive
+    environment:
+      PYTHONUNBUFFERED: 1
+      LOG_LEVEL: INFO
+      USE_AWS_SECRETS: "false"
+      HTTP_PROXY: ${HTTP_PROXY}
+      HTTPS_PROXY: ${HTTPS_PROXY}
+      NO_PROXY: ${NO_PROXY}
+    env_file: .env
+    ports:
+      - "8080:8080"
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    ulimits:
+      nproc: 1024
+      nofile:
+        soft: 65536
+        hard: 65536
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import requests; requests.get('http://localhost:8080/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    network_mode: host 

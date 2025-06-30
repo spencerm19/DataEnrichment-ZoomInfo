@@ -1,0 +1,20 @@
+{
+    "insecure-registries": ["hubproxy.docker.internal:5555"],
+    "registry-mirrors": ["http://hubproxy.docker.internal:5555"],
+    "debug": true,
+    "experimental": true,
+    "features": {
+        "buildkit": true
+    },
+    "builder": {
+        "gc": {
+            "enabled": true,
+            "defaultKeepStorage": "20GB"
+        }
+    },
+    "proxies": {
+        "http-proxy": "http://http.docker.internal:3128",
+        "https-proxy": "http://http.docker.internal:3128",
+        "no-proxy": "hubproxy.docker.internal"
+    }
+} 
